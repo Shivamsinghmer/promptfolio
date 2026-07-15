@@ -139,22 +139,20 @@ export default function Landing() {
 
         {/* Branding */}
         <div className="space-y-3">
-          <h1 className="text-6xl font-extrabold tracking-tight text-white m-0">
-            <span className="bg-gradient-to-r from-white via-white to-primary bg-clip-text text-transparent">
-              PromptFolio
-            </span>
+          <h1 className="font-serif italic text-6xl tracking-tight m-0 leading-none">
+            <span className="text-white">Prompt</span><span className="text-primary">Folio</span>
           </h1>
-          <p className="text-base text-white/70 font-medium leading-relaxed">
-            Talk to your portfolio. Invest, rebalance,<br />and pay — in plain English.
+          <p className="text-base text-white/75 font-medium leading-relaxed max-w-sm mx-auto">
+            Talk to your portfolio. Invest, rebalance, and pay — in plain English.
           </p>
         </div>
 
         {/* Connect Card */}
-        <div className="p-6 rounded-2xl bg-card/90 border border-border shadow-2xl space-y-3 backdrop-blur-md">
-          
+        <div className="p-6 rounded-xl bg-card/90 border border-border shadow-2xl space-y-3 backdrop-blur-md">
+
           {/* Section: Web3 Wallets */}
           <div className="space-y-2">
-            <p className="text-[11px] text-white/40 uppercase tracking-widest font-semibold text-left pb-1">
+            <p className="text-[11px] text-white/55 font-semibold text-left pb-1 tracking-wide">
               Connect Solana Wallet
             </p>
 

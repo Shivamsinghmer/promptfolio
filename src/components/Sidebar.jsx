@@ -65,8 +65,8 @@ export default function Sidebar() {
               PF
             </div>
             <div>
-              <h1 className="font-extrabold text-white tracking-widest text-lg m-0 leading-tight">PromptFolio</h1>
-              <span className="text-[10px] text-primary font-mono uppercase tracking-wider">Solana AI Web3</span>
+              <h1 className="font-serif text-white text-xl m-0 leading-tight tracking-tight">PromptFolio</h1>
+              <span className="text-[10px] text-primary/70 font-mono">Solana · AI</span>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function Sidebar() {
                   className={({ isActive }) =>
                     `flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 font-medium text-sm group ${
                       isActive
-                        ? 'bg-primary/10 text-primary border-l-2 border-primary'
+                        ? 'bg-primary/10 text-primary'
                         : 'text-white/60 hover:text-white hover:bg-white/5'
                     }`
                   }

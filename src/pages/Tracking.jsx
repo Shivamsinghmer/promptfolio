@@ -144,45 +144,30 @@ export default function Tracking() {
     <div className="space-y-6 pb-12">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-white m-0">Performance & Analytics</h2>
+        <h2 className="text-2xl text-white m-0">Performance & Analytics</h2>
         <p className="text-white/60 text-sm mt-1">Detailed telemetry tracking portfolio asset allocations, growth performance, and trade histories.</p>
       </div>
 
-      {/* 3 Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl bg-card border border-border shadow-xl flex items-center justify-between">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold text-white/40 uppercase tracking-wider block">Total Portfolio Value</span>
-            <div className="flex items-baseline space-x-2">
+      {/* Stats Bar — single panel, not identical cards */}
+      <div className="bg-card border border-border rounded-xl shadow-xl overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+          <div className="px-6 py-5 space-y-1.5">
+            <span className="text-xs text-white/50 font-medium block">Portfolio Value</span>
+            <div className="flex items-baseline gap-3 flex-wrap">
               <span className="text-2xl font-bold text-white font-mono">${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-              <span className="text-xs font-bold text-solana-green flex items-center space-x-0.5">
-                <TrendingUp className="w-3 h-3 mr-0.5" />
-                <span>+12.4% <span className="text-white/40 font-normal text-[10px] ml-0.5">(30d)</span></span>
+              <span className="text-xs font-bold text-accent flex items-center gap-0.5">
+                <TrendingUp className="w-3 h-3" />
+                +12.4% <span className="text-white/40 font-normal ml-0.5">30d</span>
               </span>
             </div>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-solana-purple/10 flex items-center justify-center border border-solana-purple/20">
-            <TrendingUp className="w-6 h-6 text-solana-purple" />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-2xl bg-card border border-border shadow-xl flex items-center justify-between">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold text-white/40 uppercase tracking-wider block">Trades Executed</span>
+          <div className="px-6 py-5 space-y-1.5">
+            <span className="text-xs text-white/50 font-medium block">Trades Executed</span>
             <span className="text-2xl font-bold text-white font-mono">{displayTradesCount}</span>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-solana-green/10 flex items-center justify-center border border-solana-green/20">
-            <Activity className="w-6 h-6 text-solana-green" />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-2xl bg-card border border-border shadow-xl flex items-center justify-between">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold text-white/40 uppercase tracking-wider block">Last Rebalance Event</span>
-            <span className="text-2xl font-bold text-white font-mono text-white/90">{getDaysSinceLastRebalance()}</span>
-          </div>
-          <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center border border-yellow-500/20">
-            <RotateCcw className="w-6 h-6 text-yellow-500" />
+          <div className="px-6 py-5 space-y-1.5">
+            <span className="text-xs text-white/50 font-medium block">Last Rebalance</span>
+            <span className="text-2xl font-bold text-white/90 font-mono">{getDaysSinceLastRebalance()}</span>
           </div>
         </div>
       </div>
@@ -227,19 +212,19 @@ export default function Tracking() {
                   >
                     <div className="grid grid-cols-4 gap-3 flex-1 mr-4">
                       <div>
-                        <span className="text-[10px] text-white/40 uppercase tracking-wider block">Month</span>
+                        <span className="text-[10px] text-white/50 block">Month</span>
                         <span className="text-sm font-bold text-white">{report.month}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-white/40 uppercase tracking-wider block">Performance</span>
+                        <span className="text-[10px] text-white/50 block">Performance</span>
                         <span className={`text-sm font-bold ${report.performance.startsWith('+') ? 'text-accent' : 'text-red-400'}`}>{report.performance}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-white/40 uppercase tracking-wider block">Trades</span>
+                        <span className="text-[10px] text-white/50 block">Trades</span>
                         <span className="text-sm font-bold text-white">{report.tradesCount} executed</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-white/40 uppercase tracking-wider block">Fees Paid</span>
+                        <span className="text-[10px] text-white/50 block">Fees Paid</span>
                         <span className="text-sm font-bold text-white/80 font-mono">{report.fees}</span>
                       </div>
                     </div>
@@ -273,7 +258,7 @@ export default function Tracking() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Start vs End bar chart */}
                         <div className="space-y-2">
-                          <span className="text-[10px] text-white/40 uppercase tracking-wider block font-semibold">Allocation Drift (Start vs. End)</span>
+                          <span className="text-[10px] text-white/55 font-semibold block">Allocation Drift (Start vs. End)</span>
                           <div className="h-40 w-full bg-background/70 border border-border/40 rounded-xl p-2">
                             <ResponsiveContainer width="100%" height="100%">
                               <BarChart data={report.chartData} margin={{ top: 10, right: 5, left: -25, bottom: 0 }}>
@@ -290,7 +275,7 @@ export default function Tracking() {
 
                         {/* Trade log table */}
                         <div className="space-y-2">
-                          <span className="text-[10px] text-white/40 uppercase tracking-wider block font-semibold">Monthly Activity Log</span>
+                          <span className="text-[10px] text-white/55 font-semibold block">Monthly Activity Log</span>
                           <div className="overflow-x-auto bg-background/50 border border-border/40 rounded-xl">
                             <table className="w-full text-left text-xs border-collapse">
                               <thead>
@@ -323,19 +308,19 @@ export default function Tracking() {
           {/* Quick Summary Stats */}
           <div className="grid grid-cols-3 gap-3 pt-1">
             <div className="p-3 rounded-xl bg-card border border-border text-center space-y-1">
-              <span className="text-[10px] text-white/40 uppercase tracking-wider block">Total Fees</span>
+              <span className="text-[10px] text-white/50 block font-medium">Total Fees</span>
               <span className="text-lg font-bold text-white font-mono">$0.58</span>
-              <span className="text-[10px] text-white/30 block">All time</span>
+              <span className="text-[10px] text-white/35 block">All time</span>
             </div>
             <div className="p-3 rounded-xl bg-card border border-border text-center space-y-1">
-              <span className="text-[10px] text-white/40 uppercase tracking-wider block">Avg Return</span>
+              <span className="text-[10px] text-white/50 block font-medium">Avg Return</span>
               <span className="text-lg font-bold text-accent font-mono">+3.7%</span>
-              <span className="text-[10px] text-white/30 block">Per month</span>
+              <span className="text-[10px] text-white/35 block">Per month</span>
             </div>
             <div className="p-3 rounded-xl bg-card border border-border text-center space-y-1">
-              <span className="text-[10px] text-white/40 uppercase tracking-wider block">Win Rate</span>
+              <span className="text-[10px] text-white/50 block font-medium">Win Rate</span>
               <span className="text-lg font-bold text-primary font-mono">67%</span>
-              <span className="text-[10px] text-white/30 block">Months</span>
+              <span className="text-[10px] text-white/35 block">Months</span>
             </div>
           </div>
         </div>

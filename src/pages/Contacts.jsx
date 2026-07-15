@@ -42,7 +42,7 @@ export default function Contacts() {
       {/* Header & Add Button */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white m-0">Contacts</h2>
+          <h2 className="text-2xl text-white m-0">Contacts</h2>
           <p className="text-white/60 text-sm mt-1">Manage wallet addresses for quick payments and resolved transactions.</p>
         </div>
         <button
@@ -72,7 +72,7 @@ export default function Contacts() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-border text-xs font-semibold text-white/50 uppercase tracking-wider">
+              <tr className="border-b border-border text-xs font-semibold text-white/55">
                 <th className="py-4 px-4">Contact</th>
                 <th className="py-4 px-4">Solana Wallet Address</th>
                 <th className="py-4 px-4">Added Date</th>
@@ -90,7 +90,7 @@ export default function Contacts() {
                 filteredContacts.map((contact) => (
                   <tr 
                     key={contact.id} 
-                    className="border-b border-border/45 text-sm text-white/80 hover:bg-[#1C2335]/30 transition"
+                    className="border-b border-border/45 text-sm text-white/80 hover:bg-white/[0.03] transition"
                   >
                     <td className="py-4 px-4 flex items-center space-x-3">
                       <div className="w-8 h-8 rounded-full bg-solana-purple/10 flex items-center justify-center font-bold text-solana-purple border border-solana-purple/20">
@@ -152,7 +152,7 @@ export default function Contacts() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-semibold text-white/55 mb-2">
                   Contact Name
                 </label>
                 <input
@@ -166,7 +166,7 @@ export default function Contacts() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-semibold text-white/55 mb-2">
                   Solana Address
                 </label>
                 <input

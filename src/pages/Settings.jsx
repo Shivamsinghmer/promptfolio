@@ -31,7 +31,7 @@ export default function Settings() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-white m-0">Settings</h2>
+        <h2 className="text-2xl text-white m-0">Settings</h2>
         <p className="text-white/60 text-sm mt-1">Configure your PromptFolio AI engine and manage portfolio data.</p>
       </div>
 
@@ -61,11 +61,11 @@ export default function Settings() {
 
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div className="px-3 py-2.5 rounded-xl bg-background border border-border">
-                    <p className="text-white/40 mb-0.5 text-[10px] uppercase tracking-wider">Model</p>
+                    <p className="text-white/55 mb-0.5 text-[10px] font-medium">Model</p>
                     <p className="text-white font-mono font-semibold m-0">llama-3.3-70b-versatile</p>
                   </div>
                   <div className="px-3 py-2.5 rounded-xl bg-background border border-border">
-                    <p className="text-white/40 mb-0.5 text-[10px] uppercase tracking-wider">Source</p>
+                    <p className="text-white/55 mb-0.5 text-[10px] font-medium">Source</p>
                     <p className="text-white font-mono font-semibold m-0">.env.local</p>
                   </div>
                 </div>

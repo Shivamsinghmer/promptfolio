@@ -312,7 +312,7 @@ export default function SafetyGateModal({ parsedIntent, onClose, onExecute }) {
             <Loader2 className="w-12 h-12 text-solana-purple animate-spin" />
             <div className="space-y-2 animate-pulse">
               <h4 className="text-lg font-bold text-white">Simulating Solana Blockchain Execution</h4>
-              <p className="text-sm text-white/50 font-mono font-medium max-w-sm mx-auto">{executingMsg}</p>
+              <p className="text-sm text-white/50 font-medium max-w-sm mx-auto">{executingMsg}</p>
             </div>
             <div className="w-48 h-1 bg-[var(--border)] rounded-full overflow-hidden">
               <div className="h-full bg-solana-purple w-2/3 rounded-full animate-pulse"></div>

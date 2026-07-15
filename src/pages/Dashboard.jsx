@@ -299,19 +299,19 @@ export default function Dashboard() {
         </div>
 
         {/* Example Prompt Chips */}
-        <div className="flex flex-wrap gap-2.5">
-          <button
-            onClick={() => setInputVal("Rebalance: 50% SOL, 30% USDC, 20% JUP")}
-            className="px-3 py-2 bg-card hover:bg-[#1C2335] border border-border hover:border-solana-purple/35 text-xs text-white/70 hover:text-white rounded-xl transition duration-150 active:scale-95 cursor-pointer"
-          >
-            "Rebalance: 50% SOL, 30% USDC, 20% JUP"
-          </button>
-          <button
-            onClick={() => setInputVal("Send 20 USDC to Alex")}
-            className="px-3 py-2 bg-card hover:bg-[#1C2335] border border-border hover:border-solana-purple/35 text-xs text-white/70 hover:text-white rounded-xl transition duration-150 active:scale-95 cursor-pointer"
-          >
-            "Send 20 USDC to Alex"
-          </button>
+        <div className="flex flex-wrap gap-2">
+          {[
+            { label: 'Rebalance: 50% SOL, 30% USDC, 20% JUP', value: 'Rebalance: 50% SOL, 30% USDC, 20% JUP' },
+            { label: 'Send 20 USDC to Alex', value: 'Send 20 USDC to Alex' },
+          ].map(({ label, value }) => (
+            <button
+              key={value}
+              onClick={() => setInputVal(value)}
+              className="px-3 py-1.5 bg-card hover:bg-primary/5 border border-border hover:border-primary/30 text-xs text-white/60 hover:text-white/90 rounded-lg transition-all duration-150 active:scale-95 cursor-pointer font-mono"
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         {/* Large Input Bar */}
@@ -322,7 +322,7 @@ export default function Dashboard() {
             onChange={(e) => setInputVal(e.target.value)}
             disabled={isParsing}
             placeholder="What would you like to do? e.g. Keep 40% in USDC and split the rest across AI tokens"
-            className="w-full bg-card border border-border focus:border-solana-purple rounded-2xl pl-4 pr-12 py-4 text-sm text-white placeholder-white/20 focus:outline-none shadow-xl pr-14 disabled:opacity-50"
+            className="w-full bg-card border border-border focus:border-solana-purple rounded-xl pl-4 pr-14 py-4 text-sm text-white placeholder-white/30 focus:outline-none shadow-xl disabled:opacity-50"
           />
           <button
             type="submit"
@@ -343,13 +343,13 @@ export default function Dashboard() {
           {/* Balance + Donut (fixed height) */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-border shrink-0">
             <div className="space-y-0.5">
-              <span className="text-[10px] text-white/40 uppercase tracking-wider font-semibold block">Total Holdings Balance</span>
+              <span className="text-xs text-white/55 font-medium block">Holdings</span>
               <span className="text-2xl font-extrabold text-white font-mono tracking-tight">
                 ${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
               <div className="flex items-center space-x-1 text-xs font-bold text-solana-green">
                 <TrendingUp className="w-3 h-3" />
-                <span>+{change24h}% <span className="text-white/40 font-normal text-[10px]">(24h)</span></span>
+                <span>+{change24h}% <span className="text-white/45 font-normal text-[10px]">24h</span></span>
               </div>
             </div>
             <div className="h-16 w-16 shrink-0">
@@ -367,15 +367,15 @@ export default function Dashboard() {
 
           {/* Table section header (fixed) */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-border shrink-0">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider m-0">Asset Allocations</h3>
-            <span className="text-[10px] text-white/50 font-semibold font-mono">{holdings.length} assets</span>
+            <h3 className="text-xs font-semibold text-white/80 m-0">Allocations</h3>
+            <span className="text-[10px] text-white/45 font-mono">{holdings.length} assets</span>
           </div>
 
           {/* Table column headers (fixed) */}
           <div className="px-5 shrink-0 border-b border-border/50">
             <table className="w-full text-left border-collapse table-fixed">
               <thead>
-                <tr className="text-[10px] font-semibold text-white/35 uppercase tracking-wider">
+                <tr className="text-[10px] font-semibold text-white/55 uppercase tracking-wider">
                   <th className="py-2.5 w-[35%]">Token</th>
                   <th className="py-2.5 w-[25%] text-right">Holdings</th>
                   <th className="py-2.5 w-[25%] text-right">Value</th>
